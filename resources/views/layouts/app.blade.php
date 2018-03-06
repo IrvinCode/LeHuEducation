@@ -17,7 +17,7 @@
 
 </head>
 <body id="app-layout">
-    <nav class="navbar navbar-default navbar-static-top">
+    <nav class="navbar navbar-default navbar-static-top" style="background-color: #212F3D">
         <div class="container">
             <div class="navbar-header">
 
