@@ -36,20 +36,10 @@
             </div>
 
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
-                <!-- Left Side Of Navbar -->
-                <ul class="nav navbar-nav">
-                    <li><a href="{{ url('/home') }}">Incio</a></li>
-                </ul>
-
                 <ul class="nav navbar-nav navbar-left">
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                            Cursos <span class="caret"></span>
-                        </a>
 
-                        <ul class="dropdown-menu" role="menu">
-                            <li><a href="{{ url('/cursos/introduccion') }}"><i class="fa fa-btn fa-sign-out"></i>HTML Básico</a></li>
-                        </ul>
+                        <a href="{{ url('/cursos') }}"><i class="fa fa-btn fa-sign-out"></i>Cursos</a>
                     </li>
                 </ul>
 
@@ -60,12 +50,18 @@
                         <li><a href="{{ url('/login') }}">Inicio de sesión</a></li>
                         <li><a href="{{ url('/register') }}">Registrate</a></li>
                     @else
+                        @if (Auth::user()->profesor == 1)
+                            <ul class="nav navbar-nav">
+                                <li><a href="{{ url('/cursos/nuevo') }}">Agregar un curso</a></li>
+                            </ul>
+                        @endif
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                 {{ Auth::user()->name }} <span class="caret"></span>
                             </a>
 
                             <ul class="dropdown-menu" role="menu">
+                                <li><a href="{{ url('/perfil') }}"><i class="fa fa-btn fa-sign-out"></i>Perfil</a></li>
                                 <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Cerrar sesión</a></li>
                             </ul>
                         </li>

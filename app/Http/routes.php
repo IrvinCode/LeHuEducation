@@ -11,12 +11,18 @@
 |
 */
 
-Route::get('/', function () {
+Route::get('/', function(){
     return view('welcome');
 });
 
 Route::auth();
 
-Route::get('/home', 'HomeController@index');
+Route::get('/perfil', 'HomeController@perfil');
 
-Route::get('/cursos/introduccion', 'CursoController@introduccion');
+Route::get('/cursos', 'CursoController@introduccion');
+
+Route::post('/cursos/tomar', 'HomeController@tomarCurso');
+
+Route::get('/cursos/nuevo', 'HomeController@nuevoCurso');
+
+Route::post('/cursos/nuevo', 'HomeController@crearCurso');
